@@ -3,9 +3,7 @@ import './App.css';
 import Tmdb from './Tmdb';
 import MovieRow from './components/MovieRow';
 import FeatureMovie from './components/FeaturedMovie';
-import Header from './components/Header';
-import WatchAdd from './components/WatchAdd';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Header from './components/Header'
 
 export default () => {
 
@@ -46,16 +44,7 @@ export default () => {
   return (
     <div className="page">
 
-      <Router>
-        <Header black={blackHeader}/>
-
-        <Switch>
-          <Route exact path ="/add">
-            <WatchAdd />
-          </Route>
-        </Switch>
-
-      </Router>
+      <Header black={blackHeader}/>
 
       {featureData && 
         <FeatureMovie item={featureData} />
