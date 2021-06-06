@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.css';
 import SearchIcon from '@material-ui/icons/Search';
+import {Link} from 'react-router-dom';
 
 export default ({black}) => {
     return (
@@ -11,9 +12,9 @@ export default ({black}) => {
                 </a>
             </div>
             <div className="header--actions">
-                <a href="/" className="header--search">
+                <Link to="/add" className="header--search">
                     <SearchIcon style={{fontSize: 25}} />
-                </a>
+                </Link>
                 <a href="/">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="Usuário" />
                 </a>
