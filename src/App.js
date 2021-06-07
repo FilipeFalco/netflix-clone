@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import { HomePage } from './pages/HomePage';
 import { Search } from './pages/Search';
-import { User } from './pages/User';
 
 function App() {
   const [blackHeader, setBlackHeader] = useState(false);
@@ -36,7 +35,6 @@ function App() {
           </Route>
 
           <Route path="/user">
-            <User />
           </Route>
         </Switch>
     </Router>
