@@ -77,5 +77,10 @@ export default {
         }
 
         return info;
-    }
+    },
+
+    // searchFilm: async (words) => {
+    //     let list = await basicFetch(`/search/movie?api_key=${API_KEY}&language=pt-BR&page=1&include_adult=false&query=${words}`)
+    //     return list;
+    // }
 }
