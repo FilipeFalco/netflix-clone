@@ -30,43 +30,36 @@ export default () => {
 
   useEffect(() => {
     const scrollListener = () => {
-      if(window.scrollY > 10) {
-        setBlackHeader(true);
-      } else {
-        setBlackHeader(false);
-      }
+        if (window.scrollY > 10) {
+            setBlackHeader(true);
+        } else {
+            setBlackHeader(false);
+        }
     }
 
     window.addEventListener('scroll', scrollListener);
-    return () => {window.removeEventListener('scroll', scrollListener);}
-  })
+    return () => { window.removeEventListener('scroll', scrollListener); }
+  });
 
   return (
-    <div className="page">
+    <Router>
+      <Header black={blackHeader} />
 
-      <Header black={blackHeader}/>
+        <Switch>
+          <Route exact path="/"> 
+            <HomePage />
+          </Route>
 
-      {featureData && 
-        <FeatureMovie item={featureData} />
-      }
+          <Route path="/search">
+            <Search />
+          </Route>
 
-      <section className="lists">
-        {movieList.map((item, key) => (
-          <MovieRow key={key} title={item.title} items={item.items}/>
-        ))}
-      </section>
-
-      <footer>
-        Feito com <span role="img" aria-label="coração">❤️</span> por Filipe Falco<br />
-        Direitos de imagem para Netflix<br />
-        Dados fornecidos por themoviedb.org
-      </footer>
-
-      {movieList.length <= 0 &&
-        <div className="loading">
-          <img src="https://media.wired.com/photos/592744d3f3e2356fd800bf00/master/w_2560%2Cc_limit/Netflix_LoadTime.gif" />
-        </div>
-      }
-    </div>
-  );
+          <Route path="/user">
+            <User />
+          </Route>
+        </Switch>
+    </Router>
+  )
 }
+
+export default App;
